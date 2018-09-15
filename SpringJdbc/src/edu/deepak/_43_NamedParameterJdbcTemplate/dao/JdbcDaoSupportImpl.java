@@ -9,4 +9,9 @@ public class JdbcDaoSupportImpl extends JdbcDaoSupport {
 		return this.getJdbcTemplate().queryForObject(sql, Integer.class);
 	}
 
+	public String getCircleName(int circleId) {
+		String sql = "SELECT NAME FROM CIRCLE WHERE ID = ?";
+		return this.getJdbcTemplate().queryForObject(sql, new Object[] { circleId }, String.class);
+	}
+
 }

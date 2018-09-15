@@ -13,8 +13,9 @@ public class JdbcDemo {
 		JdbcDemoImpl dao = ctx.getBean("jdbcDemoImpl", JdbcDemoImpl.class);
 		JdbcDaoSupportImpl jdbcDaoSupportImpl = ctx.getBean("jdbcDaoSupportImpl",JdbcDaoSupportImpl.class);
 
-		System.out.println("Circle Name : " + dao.getCircleNameById(1));
+		System.out.println("Circle Name  : " + dao.getCircleNameById(1));
 		System.out.println("Circle Count : " +jdbcDaoSupportImpl.getCircleCount());
+		System.out.println("Circle Name  : " +jdbcDaoSupportImpl.getCircleName(6));
 	}
 
 }
