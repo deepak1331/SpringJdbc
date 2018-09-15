@@ -43,6 +43,11 @@ public class JdbcDemoImpl {
 		return jdbcTemplate.queryForObject(sql, new Object[]{circleId}, String.class);
 	}
 	
+	public int deleteCircleById(int circleId) {
+		sql = "DELETE FROM CIRCLE WHERE ID = ?";
+		return jdbcTemplate.update(sql,new Object[]{circleId});
+	}
+	
 	public Circle getCircleById(int circleId) {
 		sql = "SELECT * FROM CIRCLE WHERE ID = ?";
 		return jdbcTemplate.queryForObject(sql, new Object[]{circleId}, new CircleMapper());
@@ -61,6 +66,11 @@ public class JdbcDemoImpl {
 			return circle;			
 		}
 		
+	}
+
+	public int insertCircle(Circle circle) {
+		sql="INSERT INTO CIRCLE VALUES (?,?)";
+		return jdbcTemplate.update(sql, new Object[]{circle.getId(), circle.getName()});
 	}
 	
 //	public JdbcTemplate getJdbcTemplate() {
